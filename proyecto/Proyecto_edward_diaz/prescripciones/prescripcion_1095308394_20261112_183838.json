@@ -1,0 +1,20 @@
+{
+    "fecha": "2026-11-12 18:38:38",
+    "paciente": {
+        "id": "1095308394",
+        "nombre": "edward diaz"
+    },
+    "medico": {
+        "id": "1095308394",
+        "nombre": "edward diaz"
+    },
+    "diagnostico": "cansancio excesivo",
+    "medicamentos": [
+        {
+            "medicamento": "mieltertos",
+            "cantidad": 1,
+            "dosis": "1",
+            "dias": 1
+        }
+    ]
+}

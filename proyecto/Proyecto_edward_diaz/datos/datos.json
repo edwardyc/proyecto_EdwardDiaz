@@ -1,0 +1,57 @@
+{
+    "usuarios": [
+        {
+            "id": "0000",
+            "nombres": "Admin",
+            "apellidos": "Administrador",
+            "telefono": "555 000111",
+            "email": "admin@acmeclinic.com",
+            "direccion": "Cl 185 # 26 - 85",
+            "rol": "Administrativo",
+            "contrasena": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9"
+        },
+        {
+            "id": "1095308394",
+            "nombres": "edward",
+            "apellidos": "diaz",
+            "telefono": "3152180652",
+            "email": "edwarddiaz@gmail.com",
+            "direccion": "aqui",
+            "rol": "Médico",
+            "contrasena": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
+        }
+    ],
+    "pacientes": [
+        {
+            "id": "1095308394",
+            "nombres": "edward",
+            "apellidos": "diaz",
+            "telefono": "3152180652",
+            "email": "edwarddiaz@gmail.com",
+            "direccion": "aqui",
+            "genero": "Masculino",
+            "estado_civil": "Soltero(a)"
+        }
+    ],
+    "consultas": [
+        {
+            "fecha": "2026-11-12 18:38:38",
+            "id_paciente": "1095308394",
+            "id_medico": "1095308394",
+            "sintomas": [
+                "tos",
+                "dolor de estomago",
+                "dolor de cabeza"
+            ],
+            "diagnostico": "cansancio excesivo",
+            "medicamentos": [
+                {
+                    "medicamento": "mieltertos",
+                    "cantidad": 1,
+                    "dosis": "1",
+                    "dias": 1
+                }
+            ]
+        }
+    ]
+}
