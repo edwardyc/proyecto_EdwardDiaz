@@ -2,7 +2,6 @@
 ANCHO = 60
 
 
-# ---------- Cómo se ve ----------
 def titulo(texto):
     print("\n" + "=" * ANCHO)
     print(texto.upper().center(ANCHO))
@@ -26,7 +25,6 @@ def dato(etiqueta, valor):
     print(f"  {etiqueta:<16}{valor}")
 
 
-# ---------- Cómo se piden los datos ----------
 def pedir(mensaje):
     """Pide un texto. No deja continuar si se deja vacío."""
     while True:

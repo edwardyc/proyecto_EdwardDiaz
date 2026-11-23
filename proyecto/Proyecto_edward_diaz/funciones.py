@@ -11,12 +11,6 @@ CARPETA = os.path.dirname(os.path.abspath(__file__))
 ARCHIVO = os.path.join(CARPETA, "datos", "datos.json")
 
 
-# ---------- Guardar y leer el JSON ----------
-def cifrar(contrasena):
-    """Convierte la contraseña en un código para no guardarla en texto plano."""
-    return hashlib.sha256(contrasena.encode()).hexdigest()
-
-
 def guardar(datos):
     with open(ARCHIVO, "w", encoding="utf-8") as f:
         json.dump(datos, f, ensure_ascii=False, indent=4)
@@ -28,7 +22,7 @@ def cargar():
         admin = {"id": "0000", "nombres": "Admin", "apellidos": "Administrador",
                  "telefono": "555 000111", "email": "admin@acmeclinic.com",
                  "direccion": "Cl 185 # 26 - 85", "rol": "Administrativo",
-                 "contrasena": cifrar("admin123")}
+                 "contrasena": "admin123"}
         guardar({"usuarios": [admin], "pacientes": [], "consultas": []})
     with open(ARCHIVO, encoding="utf-8") as f:
         return json.load(f)
@@ -42,7 +36,6 @@ def buscar(lista, id):
     return None
 
 
-# ---------- Login ----------
 def login(datos):
     titulo("Clínica ACME - Inicio de sesión")
     while True:
@@ -51,13 +44,17 @@ def login(datos):
             return None
         contrasena = input("  Contraseña: ")
         for u in datos["usuarios"]:
-            if u["email"] == email and u["contrasena"] == cifrar(contrasena):
+            if u["email"] != email:
+                continue
+            if u["contrasena"] == hashlib.sha256(contrasena.encode()).hexdigest():
+                u["contrasena"] = contrasena
+                guardar(datos)
+            if u["contrasena"] == contrasena:
                 ok(f"Bienvenido(a) {u['nombres']} {u['apellidos']} ({u['rol']})")
                 return u
         error("Usuario o contraseña incorrectos.")
 
 
-# ---------- Registros ----------
 def pedir_persona(lista):
     """Pide los datos comunes de usuarios y pacientes."""
     id = pedir("No. de identificación")
@@ -78,7 +75,7 @@ def registrar_usuario(datos):
         error("Ya existe un usuario con ese e-mail.")
         return
     usuario["rol"] = elegir("Rol:", ["Médico", "Administrativo"])
-    usuario["contrasena"] = cifrar(pedir_contrasena())
+    usuario["contrasena"] = pedir_contrasena()
     datos["usuarios"].append(usuario)
     guardar(datos)
     ok("Usuario registrado correctamente.")
@@ -97,7 +94,6 @@ def registrar_paciente(datos):
     ok("Paciente registrado correctamente.")
 
 
-# ---------- Diagnóstico ----------
 def pedir_sintomas():
     print("\n  Síntomas (Enter vacío para terminar)")
     sintomas = []
@@ -150,7 +146,6 @@ def diagnosticar(datos, medico):
     datos["consultas"].append(consulta)
     guardar(datos)
 
-    # Un archivo JSON por cada prescripción (asociado a fecha, paciente y médico)
     prescripcion = {"fecha": consulta["fecha"],
                     "paciente": {"id": paciente["id"],
                                  "nombre": f"{paciente['nombres']} {paciente['apellidos']}"},
@@ -166,7 +161,6 @@ def diagnosticar(datos, medico):
     ok(f"Prescripción generada: prescripciones/{nombre}")
 
 
-# ---------- Historia clínica ----------
 def historia_clinica(datos):
     titulo("Historia clínica")
     paciente = buscar(datos["pacientes"], pedir("Identificación del paciente"))
