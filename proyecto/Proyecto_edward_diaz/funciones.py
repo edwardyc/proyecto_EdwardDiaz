@@ -195,3 +195,7 @@ def historia_clinica(datos):
             print(f"    • {m['medicamento']} - {m['cantidad']} und - "
                   f"{m['dosis']} - {m['dias']} día(s)")
         linea()
+
+def reporte_carga_medicos(datos):
+    titulo("Reportes de carga medico")
+    

@@ -9,8 +9,67 @@
             "direccion": "Cl 185 # 26 - 85",
             "rol": "Administrativo",
             "contrasena": "admin123"
+        },
+        {
+            "id": "1095308394",
+            "nombres": "edward",
+            "apellidos": "diaz",
+            "telefono": "321321321",
+            "email": "edward@acmeclinic.com",
+            "direccion": "piedecuesta-santander",
+            "rol": "Médico",
+            "contrasena": "123456"
         }
     ],
-    "pacientes": [],
-    "consultas": []
+    "pacientes": [
+        {
+            "id": "123",
+            "nombres": "juan",
+            "apellidos": "perez",
+            "telefono": "123123123",
+            "email": "juan@gmail.com",
+            "direccion": "floridablanca-santander",
+            "genero": "Femenino",
+            "estado_civil": "Soltero(a)"
+        }
+    ],
+    "consultas": [
+        {
+            "fecha": "2026-11-23 19:18:00",
+            "id_paciente": "123",
+            "id_medico": "1095308394",
+            "sintomas": [
+                "fiebre",
+                "dolor de cabeza"
+            ],
+            "diagnostico": "migraña",
+            "medicamentos": [
+                {
+                    "medicamento": "acetaminofen",
+                    "cantidad": 1,
+                    "dosis": "1 cada 12 horas",
+                    "dias": 5
+                }
+            ]
+        },
+        {
+            "fecha": "2026-11-23 19:22:34",
+            "id_paciente": "123",
+            "id_medico": "1095308394",
+            "sintomas": [
+                "tos",
+                "dolor en el pecho",
+                "dificultad al respirar"
+            ],
+            "diagnostico": "costocondritis",
+            "medicamentos": [
+                {
+                    "medicamento": "antiinflamatorios",
+                    "cantidad": 1,
+                    "dosis": "1 cada 24 horas",
+                    "dias": 30
+                }
+            ]
+        }
+    ]
 }

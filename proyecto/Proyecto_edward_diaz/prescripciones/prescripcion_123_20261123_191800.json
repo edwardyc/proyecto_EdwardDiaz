@@ -1,0 +1,20 @@
+{
+    "fecha": "2026-11-23 19:18:00",
+    "paciente": {
+        "id": "123",
+        "nombre": "juan perez"
+    },
+    "medico": {
+        "id": "1095308394",
+        "nombre": "edward diaz"
+    },
+    "diagnostico": "migraña",
+    "medicamentos": [
+        {
+            "medicamento": "acetaminofen",
+            "cantidad": 1,
+            "dosis": "1 cada 12 horas",
+            "dias": 5
+        }
+    ]
+}

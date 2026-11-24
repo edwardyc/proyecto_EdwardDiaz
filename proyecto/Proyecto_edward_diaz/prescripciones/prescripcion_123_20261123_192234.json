@@ -1,0 +1,20 @@
+{
+    "fecha": "2026-11-23 19:22:34",
+    "paciente": {
+        "id": "123",
+        "nombre": "juan perez"
+    },
+    "medico": {
+        "id": "1095308394",
+        "nombre": "edward diaz"
+    },
+    "diagnostico": "costocondritis",
+    "medicamentos": [
+        {
+            "medicamento": "antiinflamatorios",
+            "cantidad": 1,
+            "dosis": "1 cada 24 horas",
+            "dias": 30
+        }
+    ]
+}

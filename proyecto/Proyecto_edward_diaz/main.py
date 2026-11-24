@@ -1,16 +1,17 @@
 """Clínica ACME - programa principal. Ejecutar con: python main.py"""
 from ayudas import titulo
 from funciones import (cargar, login, registrar_usuario, registrar_paciente,
-                       diagnosticar, historia_clinica)
+                       diagnosticar, historia_clinica, reporte_carga_medicos,)
 
 
-def menu(datos, usuario):
+def menu(datos, usuario, reporte):
     while True:
         titulo("Menú principal")
         print("  1. Registrar usuario")
         print("  2. Registrar paciente")
         print("  3. Diagnosticar paciente")
         print("  4. Historia clínica")
+        print("  5. Reporte_carga_medicos")
         print("  0. Cerrar sesión")
         opcion = input("\n  Opción: ").strip()
         if opcion == "1":
@@ -21,6 +22,8 @@ def menu(datos, usuario):
             diagnosticar(datos, usuario)
         elif opcion == "4":
             historia_clinica(datos)
+        elif opcion == "5":
+            reporte_carga_medicos(datos)
         elif opcion == "0":
             return
         else:
